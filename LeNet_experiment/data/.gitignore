@@ -1,0 +1,4 @@
+# Keep this directory in Git while excluding downloaded dataset files.
+*
+!.gitignore
+

@@ -1,0 +1,8 @@
+# CIFAR-10 is downloaded automatically by the training scripts.
+data/*
+!data/.gitignore
+
+# Python-generated caches.
+__pycache__/
+*.py[cod]
+

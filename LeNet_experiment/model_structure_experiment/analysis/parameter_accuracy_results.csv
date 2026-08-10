@@ -1,0 +1,14 @@
+﻿model_name,parameters,accuracy,training_time,category,modification,is_baseline,parameter_growth_ratio,parameter_growth_percent,accuracy_change_pp,accuracy_growth_ratio,efficiency_ratio,accuracy_per_100k_parameters,pareto_efficient
+baseline_current,121182,70.38,168.6711,基线,当前模型：Conv通道3→16→32，k=5，MaxPool，ReLU,True,0.0,0.0,0.0,0.0,,58.0779,True
+channel_reduced_4_8,36246,60.08,143.2238,卷积通道消融,Conv通道由3→16→32减少为3→4→8,False,-0.70089617,-70.0896,-10.3,-0.14634839,0.20880182,165.7562,True
+channel_classic_6_16,62006,64.82,148.2321,卷积通道消融,采用经典LeNet通道规模，RGB输入下为3→6→16,False,-0.48832335,-48.8323,-5.56,-0.07899972,0.16177747,104.5383,False
+depth_add_conv,49790,69.48,172.3289,网络深度消融,"在第二次池化后增加Conv3(k=3,p=1)+MaxPool",False,-0.5891304,-58.913,-0.9,-0.01278772,0.0217061,139.5461,True
+kernel_size_3,154462,69.76,168.8025,卷积核大小消融,两个基础卷积层kernel_size由5改为3,False,0.27462825,27.4628,-0.62,-0.00880932,-0.03207726,45.1632,False
+kernel_size_7,73182,65.46,167.242,卷积核大小消融,两个基础卷积层kernel_size由5改为7,False,-0.39609843,-39.6098,-4.92,-0.06990622,0.176487,89.4482,False
+pooling_avg,121182,69.46,183.9927,池化方式消融,MaxPool2d改为AvgPool2d,False,0.0,0.0,-0.92,-0.0130719,,57.3187,False
+pooling_none,2237022,65.08,360.2279,池化方式消融,取消两次Pooling，Linear输入维度自动调整,False,17.46001881,1746.0019,-5.3,-0.07530548,-0.00431302,2.9092,False
+activation_sigmoid,121182,61.22,169.5819,激活函数消融,ReLU改为Sigmoid,False,0.0,0.0,-9.16,-0.13015061,,50.5191,False
+activation_tanh,121182,67.3,164.5098,激活函数消融,ReLU改为Tanh,False,0.0,0.0,-3.08,-0.04376243,,55.5363,False
+activation_leaky_relu,121182,70.2,169.9609,激活函数消融,ReLU改为LeakyReLU(negative_slope=0.01),False,0.0,0.0,-0.18,-0.00255754,,57.9294,False
+batch_norm,121278,73.06,171.9614,Batch Normalization消融,每个卷积层后加入BatchNorm2d,False,0.0007922,0.0792,2.68,0.038079,48.06759733,60.2418,True
+dropout_0_5,121182,65.56,159.7605,Dropout消融,两个FC隐藏层激活后加入Dropout(p=0.5),False,0.0,0.0,-4.82,-0.06848537,,54.1004,False
