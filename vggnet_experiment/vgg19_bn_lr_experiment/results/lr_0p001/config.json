@@ -1,0 +1,24 @@
+{
+  "model": "VGG19",
+  "batch_norm": true,
+  "block_order": "Conv2d -> BatchNorm2d -> ReLU",
+  "learning_rate": 0.001,
+  "optimizer": "Adam",
+  "epochs": 30,
+  "batch_size": 8,
+  "seed": 42,
+  "amp": true,
+  "data_dir": "D:\\DeepLearn_Study\\deep-learning-for-image-processing\\vggnet_experiment\\data\\flower_data",
+  "train_samples": 3306,
+  "test_samples": 364,
+  "test_source_directory": "val",
+  "classes": [
+    "daisy",
+    "dandelion",
+    "roses",
+    "sunflowers",
+    "tulips"
+  ],
+  "torch_version": "2.13.0+cu126",
+  "device": "cuda:0"
+}
